@@ -8,12 +8,12 @@
   @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Inter:wght@400;500;600;700;800&display=swap');
 
   :root {
-    --cherry: #C41E3A;
-    --cherry-dark: #9A1730;
-    --cream: #FFF8ED;
-    --charcoal: #1E1B18;
-    --mustard: #E8A33D;
-    --line: #E5DCC9;
+    --cherry: #9A3324;
+    --cherry-dark: #7A2519;
+    --cream: #F2E8D5;
+    --charcoal: #1A1613;
+    --mustard: #D4A017;
+    --line: #E3D6BA;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -186,6 +186,49 @@
 
   .menu-card .price { color: var(--cherry); font-weight: 700; }
   .menu-card p { font-size: 13.5px; color: #6b5c4a; }
+
+  /* Menu tabs */
+  .menu-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    max-width: 900px;
+    margin: 0 auto 40px;
+  }
+
+  .menu-tab {
+    padding: 10px 18px;
+    border-radius: 20px;
+    border: 1.5px solid var(--line);
+    background: #fff;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    color: #55504A;
+    transition: all 0.2s ease;
+  }
+
+  .menu-tab:hover { border-color: var(--cherry); color: var(--cherry); }
+
+  .menu-tab.active {
+    background: var(--cherry);
+    border-color: var(--cherry);
+    color: #fff;
+  }
+
+  .menu-panel { display: none; }
+  .menu-panel.active { display: block; }
+
+  .menu-note {
+    text-align: center;
+    max-width: 600px;
+    margin: 36px auto 0;
+    font-size: 13px;
+    color: #8a7a63;
+    font-style: italic;
+  }
 
   /* About / gallery */
   .about-grid {
@@ -405,36 +448,87 @@
 
 <section class="menu-section" id="menu">
   <div class="section-head">
-    <div class="kicker">What We're Known For</div>
-    <h2>A Few House Favorites</h2>
-    <p>Placeholder items below — swap in the real menu and prices whenever you send them over.</p>
+    <div class="kicker">Breakfast · Lunch · Dinner</div>
+    <h2>Our Menu</h2>
+    <p>A few highlights from each part of our menu — ask your server about daily specials.</p>
   </div>
-  <div class="menu-grid">
-    <div class="menu-card">
-      <h3>Texas French Toast <span class="price">$—</span></h3>
-      <p>Thick-cut, griddled golden, served with real butter and syrup.</p>
-    </div>
-    <div class="menu-card">
-      <h3>Spaghetti Red <span class="price">$—</span></h3>
-      <p>A local specialty — spaghetti topped with chili, pickles, and onions.</p>
-    </div>
-    <div class="menu-card">
-      <h3>Country Fried Steak <span class="price">$—</span></h3>
-      <p>Hand-breaded, pan-fried, smothered in peppered gravy.</p>
-    </div>
-    <div class="menu-card">
-      <h3>Chili Cheese Burger <span class="price">$—</span></h3>
-      <p>Classic diner burger loaded with house chili and melted cheese.</p>
-    </div>
-    <div class="menu-card">
-      <h3>Catfish Plate <span class="price">$—</span></h3>
-      <p>Crispy fried catfish, served with your choice of two sides.</p>
-    </div>
-    <div class="menu-card">
-      <h3>Buffalo Chicken Nacho Fries <span class="price">$—</span></h3>
-      <p>Crispy fries loaded with buffalo chicken, cheese, and drizzle.</p>
+
+  <div class="menu-tabs" id="menuTabs">
+    <div class="menu-tab active" data-tab="breakfast">Breakfast</div>
+    <div class="menu-tab" data-tab="burgers">Burgers &amp; Sandwiches</div>
+    <div class="menu-tab" data-tab="dinners">Dinners &amp; Faves</div>
+    <div class="menu-tab" data-tab="salads">Salads &amp; Sides</div>
+    <div class="menu-tab" data-tab="drinks">Beverages</div>
+    <div class="menu-tab" data-tab="desserts">Desserts</div>
+  </div>
+
+  <div class="menu-panel active" data-panel="breakfast">
+    <div class="menu-grid">
+      <div class="menu-card"><h3>Hash Stack <span class="price">$13.99</span></h3><p>Hash browns topped with bacon, sausage, scrambled eggs, gravy, and cheese. Served with our cinnamon toast.</p></div>
+      <div class="menu-card"><h3>Meat Lovers Skillet <span class="price">$14.99</span></h3><p>Hash browns, sausage, ham, bacon, cheddar cheese, and two eggs.</p></div>
+      <div class="menu-card"><h3>Chicken Fajita Skillet <span class="price">$15.49</span></h3><p>Hash browns, grilled chicken, peppers, onions, tomatoes, jalapeños, cheddar cheese, and two eggs.</p></div>
+      <div class="menu-card"><h3>Avocado Toast <span class="price">$12.99</span></h3><p>Smashed avocado with lemon and salt on rye toast, served with two eggs your way and fruit.</p></div>
+      <div class="menu-card"><h3>Homestyle Cinnamon French Toast <span class="price">$10.49</span></h3><p>Four slices of our homestyle cinnamon French toast.</p></div>
+      <div class="menu-card"><h3>Western Omelet or Skillet <span class="price">$12.99</span></h3><p>Peppers, onions, and diced ham with hash browns and toast or biscuits &amp; gravy.</p></div>
     </div>
   </div>
+
+  <div class="menu-panel" data-panel="burgers">
+    <div class="menu-grid">
+      <div class="menu-card"><h3>Flamin' Cheeseburger <span class="price">$14.49</span></h3><p>Half-pound burger topped with pepper jack cheese and jalapeños.</p></div>
+      <div class="menu-card"><h3>Chili Cheeseburger <span class="price">$13.49</span></h3><p>Fresh ground beef patty smothered in our famous chili, mustard, pickles, and onions.</p></div>
+      <div class="menu-card"><h3>Bacon Ranch Burger <span class="price">$14.49</span></h3><p>Half-pound burger topped with bacon and cheese, seasoned with ranch spices.</p></div>
+      <div class="menu-card"><h3>Philly Cheesesteak <span class="price">$13.99</span></h3><p>Sliced beef with peppers, onions, mushrooms, and Swiss cheese on a hoagie bun.</p></div>
+      <div class="menu-card"><h3>Club Sandwich <span class="price">$15.49</span></h3><p>Layers of turkey, ham, bacon, cheese, lettuce, tomato, and mayonnaise.</p></div>
+      <div class="menu-card"><h3>Reuben <span class="price">$13.99</span></h3><p>Homestyle corned beef, sauerkraut, and Swiss cheese on rye.</p></div>
+    </div>
+  </div>
+
+  <div class="menu-panel" data-panel="dinners">
+    <div class="menu-grid">
+      <div class="menu-card"><h3>Spaghetti Red <span class="price">$12.99</span></h3><p>A large portion of spaghetti topped with our delicious chili, onions, pickles, and Texas toast.</p></div>
+      <div class="menu-card"><h3>Catfish Platter <span class="price">$15.49</span></h3><p>Two-piece catfish fillet fried golden, served with hush puppies and choice of two sides.</p></div>
+      <div class="menu-card"><h3>Country Fried Steak <span class="price">$15.49</span></h3><p>Covered in country gravy, served with mashed potatoes and choice of one side.</p></div>
+      <div class="menu-card"><h3>Chicken Fried Chicken <span class="price">$15.49</span></h3><p>Two breaded chicken breasts smothered in country gravy, with mashed potatoes and one side.</p></div>
+      <div class="menu-card"><h3>Foot Long Coney <span class="price">$11.99</span></h3><p>Our own chili and cheese coney, served the way you like it, with choice of one side.</p></div>
+      <div class="menu-card"><h3>Burrito Supreme <span class="price">$12.49</span></h3><p>Hand-wrapped burrito with beef and cheese, covered in chili, cheddar, lettuce, and tomato.</p></div>
+    </div>
+  </div>
+
+  <div class="menu-panel" data-panel="salads">
+    <div class="menu-grid">
+      <div class="menu-card"><h3>Taco Salad <span class="price">$12.99</span></h3><p>Served in an edible tortilla bowl with chili, ground beef, cheese, lettuce, and tomato.</p></div>
+      <div class="menu-card"><h3>Grilled Chicken Salad <span class="price">$13.49</span></h3><p>Fresh greens topped with zesty grilled chicken, cheddar cheese, tomato, and cucumber.</p></div>
+      <div class="menu-card"><h3>Chef Salad <span class="price">$13.49</span></h3><p>Fresh greens with ham, turkey, cheddar cheese, tomato, egg, and cucumber.</p></div>
+      <div class="menu-card"><h3>Mozzarella Sticks <span class="price">$9.99</span></h3><p>Creamy mozzarella, lightly breaded and served with marinara.</p></div>
+      <div class="menu-card"><h3>Iggy's Chili Fries or Tots <span class="price">$10.99</span></h3><p>Fries or tots smothered in our chili, cheddar cheese, and hickory smoked bacon.</p></div>
+      <div class="menu-card"><h3>Bowl of Chili <span class="price">$6.99</span></h3><p>A large bowl of our delicious homemade chili.</p></div>
+    </div>
+  </div>
+
+  <div class="menu-panel" data-panel="drinks">
+    <div class="menu-grid">
+      <div class="menu-card"><h3>Soft Drinks <span class="price">$3.59</span></h3><p>Freshly poured fountain drinks.</p></div>
+      <div class="menu-card"><h3>Raspberry or Sweet Tea <span class="price">$3.69</span></h3><p>Sweet or unsweetened, with flavor add-ins available.</p></div>
+      <div class="menu-card"><h3>Cherry Limeade <span class="price">$4.29</span></h3><p>A diner classic, made fresh.</p></div>
+      <div class="menu-card"><h3>Hot Cocoa <span class="price">$4.29</span></h3><p>Rich and warm, topped just right.</p></div>
+      <div class="menu-card"><h3>Coffee <span class="price">$3.09</span></h3><p>Regular or large 20 oz.</p></div>
+      <div class="menu-card"><h3>Fresh Juice <span class="price">$4.99</span></h3><p>16 oz, ask your server for flavors available.</p></div>
+    </div>
+  </div>
+
+  <div class="menu-panel" data-panel="desserts">
+    <div class="menu-grid">
+      <div class="menu-card"><h3>Molten Lava Cake <span class="price">$6.99</span></h3><p>Warm chocolate cake with a hot chocolate center, vanilla ice cream, and chocolate sauce.</p></div>
+      <div class="menu-card"><h3>Hand Dipped Ice Cream <span class="price">$3.99</span></h3><p>Vanilla, chocolate, or strawberry — single or double scoop.</p></div>
+      <div class="menu-card"><h3>Malts &amp; Shakes <span class="price">$6.99</span></h3><p>Classic diner shakes, made the old-fashioned way.</p></div>
+      <div class="menu-card"><h3>Fruit Pie <span class="price">$6.49</span></h3><p>A rotating selection of fresh-baked fruit pies.</p></div>
+      <div class="menu-card"><h3>Cream Pie <span class="price">$5.99</span></h3><p>Rich, classic, and always a favorite.</p></div>
+      <div class="menu-card"><h3>Cakes <span class="price">$6.99</span></h3><p>Ask your server what's fresh today.</p></div>
+    </div>
+  </div>
+
+  <p class="menu-note">Prices and availability may vary — ask your server about our full menu, daily specials, and Iggy's Faves.</p>
 </section>
 
 <section id="about">
@@ -444,7 +538,8 @@
       <div class="kicker">Our Story</div>
       <h2>A Route 66 classic since 1999.</h2>
       <p>[ Placeholder — swap in the real story: how Iggy's got started, what makes it special, family history, decor, whatever the owner wants to share. ]</p>
-      <p>Open daily for breakfast, lunch, and dinner — 2400 Grand Ave, Carthage, MO.</p>
+      <p><strong>Monday–Saturday:</strong> 7:00am–8:00pm<br><strong>Sunday:</strong> 7:00am–3:00pm</p>
+      <p>2400 Grand Ave, Carthage, MO 64836 &middot; (417) 237-0212</p>
     </div>
   </div>
 </section>
@@ -492,8 +587,8 @@
     <p>Placeholder social links and feed — swap in real handles and photos.</p>
   </div>
   <div class="social-icons">
-    <a href="#" aria-label="Instagram">IG</a>
-    <a href="#" aria-label="Facebook">FB</a>
+    <a href="https://instagram.com/iggys_diner" aria-label="Instagram" target="_blank">IG</a>
+    <a href="https://facebook.com/Iggy's Diner" aria-label="Facebook" target="_blank">FB</a>
   </div>
   <div class="social-feed-placeholder">
     <div></div>
@@ -522,6 +617,16 @@
   }, { threshold: 0.15 });
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Menu tab switching
+  document.querySelectorAll('.menu-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.menu-panel').forEach(p => p.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector(`.menu-panel[data-panel="${tab.dataset.tab}"]`).classList.add('active');
+    });
+  });
 
   // Show floating reserve button after scrolling past the hero
   const floatBtn = document.getElementById('floatReserve');
